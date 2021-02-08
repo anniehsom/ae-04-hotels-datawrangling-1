@@ -2090,10 +2090,68 @@ glimpse(hotels)</code></pre>
 <div id="exercise-4." class="section level3">
 <h3>Exercise 4.</h3>
 <p>Do you think it’s more likely to find bookings with children or babies in city hotels or resort hotels? Test your intuition. Using <code>filter()</code> determine the number of bookings in resort hotels that have more than 1 child <strong>or</strong> baby in the room? Then, do the same for city hotels, and compare the numbers of rows in the resulting filtered data frames.</p>
+<pre class="r"><code>hotels %&gt;%
+  filter(
+    hotel == &quot;Resort Hotel&quot;,
+    children &gt;= 1 | babies &gt;= 1
+    )</code></pre>
+<pre><code>## # A tibble: 3,929 x 32
+##    hotel is_canceled lead_time arrival_date_ye~ arrival_date_mo~
+##    &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;           
+##  1 Reso~           0        18             2015 July            
+##  2 Reso~           1        47             2015 July            
+##  3 Reso~           0         1             2015 July            
+##  4 Reso~           0        10             2015 July            
+##  5 Reso~           1        79             2015 July            
+##  6 Reso~           0       101             2015 July            
+##  7 Reso~           0        92             2015 July            
+##  8 Reso~           1        26             2015 July            
+##  9 Reso~           0       102             2015 July            
+## 10 Reso~           0        78             2015 July            
+## # ... with 3,919 more rows, and 27 more variables:
+## #   arrival_date_week_number &lt;dbl&gt;, arrival_date_day_of_month &lt;dbl&gt;,
+## #   stays_in_weekend_nights &lt;dbl&gt;, stays_in_week_nights &lt;dbl&gt;, adults &lt;dbl&gt;,
+## #   children &lt;dbl&gt;, babies &lt;dbl&gt;, meal &lt;chr&gt;, country &lt;chr&gt;,
+## #   market_segment &lt;chr&gt;, distribution_channel &lt;chr&gt;, is_repeated_guest &lt;dbl&gt;,
+## #   previous_cancellations &lt;dbl&gt;, previous_bookings_not_canceled &lt;dbl&gt;,
+## #   reserved_room_type &lt;chr&gt;, assigned_room_type &lt;chr&gt;, booking_changes &lt;dbl&gt;,
+## #   deposit_type &lt;chr&gt;, agent &lt;chr&gt;, company &lt;chr&gt;, days_in_waiting_list &lt;dbl&gt;,
+## #   customer_type &lt;chr&gt;, adr &lt;dbl&gt;, required_car_parking_spaces &lt;dbl&gt;,
+## #   total_of_special_requests &lt;dbl&gt;, reservation_status &lt;chr&gt;,
+## #   reservation_status_date &lt;date&gt;</code></pre>
+<p>There are 3,929 bookings of resort hotels with 1+ children or babies.</p>
 <pre class="r"><code># add code here
-# pay attention to correctness and code style</code></pre>
-<pre class="r"><code># add code here
-# pay attention to correctness and code style</code></pre>
+hotels %&gt;%
+  filter(
+    hotel == &quot;City Hotel&quot;,
+    children &gt;= 1 | babies &gt;= 1
+    )</code></pre>
+<pre><code>## # A tibble: 5,403 x 32
+##    hotel is_canceled lead_time arrival_date_ye~ arrival_date_mo~
+##    &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;chr&gt;           
+##  1 City~           1       100             2015 July            
+##  2 City~           0        69             2015 July            
+##  3 City~           0        67             2015 July            
+##  4 City~           1        60             2015 July            
+##  5 City~           0         0             2015 July            
+##  6 City~           0         0             2015 July            
+##  7 City~           0         0             2015 July            
+##  8 City~           0        84             2015 July            
+##  9 City~           0        74             2015 July            
+## 10 City~           0        75             2015 July            
+## # ... with 5,393 more rows, and 27 more variables:
+## #   arrival_date_week_number &lt;dbl&gt;, arrival_date_day_of_month &lt;dbl&gt;,
+## #   stays_in_weekend_nights &lt;dbl&gt;, stays_in_week_nights &lt;dbl&gt;, adults &lt;dbl&gt;,
+## #   children &lt;dbl&gt;, babies &lt;dbl&gt;, meal &lt;chr&gt;, country &lt;chr&gt;,
+## #   market_segment &lt;chr&gt;, distribution_channel &lt;chr&gt;, is_repeated_guest &lt;dbl&gt;,
+## #   previous_cancellations &lt;dbl&gt;, previous_bookings_not_canceled &lt;dbl&gt;,
+## #   reserved_room_type &lt;chr&gt;, assigned_room_type &lt;chr&gt;, booking_changes &lt;dbl&gt;,
+## #   deposit_type &lt;chr&gt;, agent &lt;chr&gt;, company &lt;chr&gt;, days_in_waiting_list &lt;dbl&gt;,
+## #   customer_type &lt;chr&gt;, adr &lt;dbl&gt;, required_car_parking_spaces &lt;dbl&gt;,
+## #   total_of_special_requests &lt;dbl&gt;, reservation_status &lt;chr&gt;,
+## #   reservation_status_date &lt;date&gt;</code></pre>
+<pre class="r"><code># pay attention to correctness and code style</code></pre>
+<p>There are 5,403 bookings of city hotels with 1+ children or babies (more than resort hotel bookings).</p>
 </div>
 <div id="exercise-5." class="section level3">
 <h3>Exercise 5.</h3>

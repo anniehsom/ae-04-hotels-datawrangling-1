@@ -88,14 +88,26 @@ in the room? Then, do the same for city hotels, and compare the numbers of
 rows in the resulting filtered data frames.
 
 ```{r resort-children}
-# add code here
-# pay attention to correctness and code style
+hotels %>%
+  filter(
+    hotel == "Resort Hotel",
+    children >= 1 | babies >= 1
+    )
 ```
+
+There are 3,929 bookings of resort hotels with 1+ children or babies.
 
 ```{r city-children}
 # add code here
+hotels %>%
+  filter(
+    hotel == "City Hotel",
+    children >= 1 | babies >= 1
+    )
 # pay attention to correctness and code style
 ```
+
+There are 5,403 bookings of city hotels with 1+ children or babies (more than resort hotel bookings).
 
 ### Exercise 5.
 
