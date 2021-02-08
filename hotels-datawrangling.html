@@ -2069,8 +2069,8 @@ glimpse(hotels)</code></pre>
 <p><strong>Note:</strong> You will need to set <code>eval=TRUE</code> when you have an answer you want to try out.</p>
 <pre class="r"><code>hotels %&gt;%
   filter(
-    country ____ &quot;USA&quot;, 
-    lead_time ____ ____
+    country != &quot;USA&quot;, 
+    lead_time &lt; 1
     )</code></pre>
 </div>
 <div id="exercise-3." class="section level3">
@@ -2084,7 +2084,7 @@ glimpse(hotels)</code></pre>
 <p><strong>Note:</strong> You will need to set <code>eval=TRUE</code> when you have an answer you want to try out.</p>
 <pre class="r"><code>hotels %&gt;%
   filter(
-    children [AT LEAST] 1 [OR] babies [AT LEAST] 1
+    children &gt;= 1 | babies &gt;= 1
     )</code></pre>
 </div>
 <div id="exercise-4." class="section level3">
