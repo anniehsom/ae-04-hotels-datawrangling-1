@@ -1,7 +1,7 @@
 ---
 title: "Hotel bookings - data wrangling"
-author: "YOU"
-date: "`r Sys.Date()`"
+author: "Annie Somerville"
+date: "02.08.2021"
 output: 
   html_document: 
     toc: yes
