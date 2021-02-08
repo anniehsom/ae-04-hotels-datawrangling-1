@@ -116,14 +116,17 @@ results in descending order so the most common observation is on top. What is
 the most common number of adults in bookings in this dataset? Are there any 
 surprising results?
 
+The most common number of adults in bookings is 2. It is surprising that there are 403 bookings for 0 adults.
+
 **Note:** Don't forget to label your R chunk as well (where it says `label-me-1`). 
 Your label should be short, informative, and shouldn't include spaces. It also 
 shouldn't repeat a previous label, otherwise R Markdown will give you an 
 error about repeated R chunk labels.
 
-```{r label-me-1}
-# add code here
-# pay attention to correctness and code style
+```{r freq-adults}
+hotels %>%
+  count(adults) %>%
+  arrange(desc(n))
 ```
 
 ### Exercise 6.
@@ -134,10 +137,19 @@ reveal about the surprising results you spotted in the previous exercise?
 
 **Note:** Don't forget to label your R chunk as well (where it says `label-me-2`). 
 
-```{r label-me-2}
-# add code here
-# pay attention to correctness and code style
+```{r freq-canceledbookings}
+hotels %>%
+  filter(is_canceled == 1) %>%
+  count(adults)
 ```
+
+```{r freq-notcanceledbookings}
+hotels %>%
+  filter(is_canceled == 0) %>%
+  count(adults)
+```
+
+More not cancelled bookings (vs. cancelled) are booked for 0 adults.
 
 ### Exercise 7.
 

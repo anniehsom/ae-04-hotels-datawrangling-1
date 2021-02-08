@@ -2156,16 +2156,65 @@ hotels %&gt;%
 <div id="exercise-5." class="section level3">
 <h3>Exercise 5.</h3>
 <p>Create a frequency table of the number of <code>adults</code> in a booking. Display the results in descending order so the most common observation is on top. What is the most common number of adults in bookings in this dataset? Are there any surprising results?</p>
+<p>The most common number of adults in bookings is 2. It is surprising that there are 403 bookings for 0 adults.</p>
 <p><strong>Note:</strong> Don’t forget to label your R chunk as well (where it says <code>label-me-1</code>). Your label should be short, informative, and shouldn’t include spaces. It also shouldn’t repeat a previous label, otherwise R Markdown will give you an error about repeated R chunk labels.</p>
-<pre class="r"><code># add code here
-# pay attention to correctness and code style</code></pre>
+<pre class="r"><code>hotels %&gt;%
+  count(adults) %&gt;%
+  arrange(desc(n))</code></pre>
+<pre><code>## # A tibble: 14 x 2
+##    adults     n
+##     &lt;dbl&gt; &lt;int&gt;
+##  1      2 89680
+##  2      1 23027
+##  3      3  6202
+##  4      0   403
+##  5      4    62
+##  6     26     5
+##  7      5     2
+##  8     20     2
+##  9     27     2
+## 10      6     1
+## 11     10     1
+## 12     40     1
+## 13     50     1
+## 14     55     1</code></pre>
 </div>
 <div id="exercise-6." class="section level3">
 <h3>Exercise 6.</h3>
 <p>Repeat Exercise 5, once for canceled bookings (<code>is_canceled</code> coded as 1) and once for not canceled bookings (<code>is_canceled</code> coded as 0). What does this reveal about the surprising results you spotted in the previous exercise?</p>
 <p><strong>Note:</strong> Don’t forget to label your R chunk as well (where it says <code>label-me-2</code>).</p>
-<pre class="r"><code># add code here
-# pay attention to correctness and code style</code></pre>
+<pre class="r"><code>hotels %&gt;%
+  filter(is_canceled == 1) %&gt;%
+  count(adults)</code></pre>
+<pre><code>## # A tibble: 14 x 2
+##    adults     n
+##  *  &lt;dbl&gt; &lt;int&gt;
+##  1      0   109
+##  2      1  6674
+##  3      2 35258
+##  4      3  2151
+##  5      4    16
+##  6      5     2
+##  7      6     1
+##  8     10     1
+##  9     20     2
+## 10     26     5
+## 11     27     2
+## 12     40     1
+## 13     50     1
+## 14     55     1</code></pre>
+<pre class="r"><code>hotels %&gt;%
+  filter(is_canceled == 0) %&gt;%
+  count(adults)</code></pre>
+<pre><code>## # A tibble: 5 x 2
+##   adults     n
+## *  &lt;dbl&gt; &lt;int&gt;
+## 1      0   294
+## 2      1 16353
+## 3      2 54422
+## 4      3  4051
+## 5      4    46</code></pre>
+<p>More not cancelled bookings (vs. cancelled) are booked for 0 adults.</p>
 </div>
 <div id="exercise-7." class="section level3">
 <h3>Exercise 7.</h3>
